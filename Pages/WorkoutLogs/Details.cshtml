@@ -1,0 +1,37 @@
+﻿@page
+@model Workout.Pages.WorkoutLogs.DetailsModel
+
+@{
+    ViewData["Title"] = "Workout Details";
+}
+<div class="bg-opacity-50 bg-light p-3">
+<h1>Workout Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkoutLog.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkoutLog.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkoutLog.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkoutLog.User.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkoutLog.Exercise)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkoutLog.Exercise.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.WorkoutLog.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+</div>

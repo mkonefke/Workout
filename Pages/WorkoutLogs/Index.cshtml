@@ -1,0 +1,48 @@
+﻿@page
+@model Workout.Pages.WorkoutLogs.IndexModel
+
+@{
+    ViewData["Title"] = "Workout Log Summary";
+}
+
+<h1>Workout Log Summary</h1>
+
+<p>
+    <a style="font-size:1.3em;" asp-page="Create">Create New</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkoutLog[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkoutLog[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkoutLog[0].Exercise)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.WorkoutLog) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exercise.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
